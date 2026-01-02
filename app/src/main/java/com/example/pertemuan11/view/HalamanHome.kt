@@ -20,10 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertemuan11.R
 import com.example.pertemuan11.modeldata.Siswa
-import com.example.pertemuan11.uicontroller.route.DestinasiHome
 import com.example.pertemuan11.viewmodel.HomeViewModel
 import com.example.pertemuan11.viewmodel.StatusUiSiswa
-import com.example.pertemuan11.viewmodel.provider.PenyediaViewModel
+import com.example.pertemuan11.viewmodel.PenyediaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

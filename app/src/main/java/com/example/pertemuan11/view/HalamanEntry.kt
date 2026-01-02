@@ -25,10 +25,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertemuan11.R
 import com.example.pertemuan11.viewmodel.EntryViewModel
-import com.example.pertemuan11.viewmodel.provider.PenyediaViewModel
+import com.example.pertemuan11.viewmodel.PenyediaViewModel
 import com.example.pertemuan11.modeldata.UIStateSiswa
 import com.example.pertemuan11.modeldata.DetailSiswa
-import com.example.pertemuan11.uicontroller.route.DestinasiEntry
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -56,8 +55,13 @@ fun EntrySiswaScreen(
             onSiswaValueChange = viewModel::updateUiState,
             onSaveClick = {
                 coroutineScope.launch {
-                    viewModel.addSiswa()
-                    navigateBack()
+                    try {
+                        viewModel.addSiswa()
+                        navigateBack()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        // Error occurred but don't crash
+                    }
                 }
             },
             modifier = Modifier
