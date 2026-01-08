@@ -60,7 +60,6 @@ fun EntrySiswaScreen(
                         navigateBack()
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        // Error occurred but don't crash
                     }
                 }
             },

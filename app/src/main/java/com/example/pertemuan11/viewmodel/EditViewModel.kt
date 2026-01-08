@@ -11,7 +11,6 @@ import com.example.pertemuan11.modeldata.UIStateSiswa
 import com.example.pertemuan11.modeldata.toDataSiswa
 import com.example.pertemuan11.modeldata.toUiStateSiswa
 import com.example.pertemuan11.repositori.RepositorySiswa
-import com.example.pertemuan11.uicontroller.route.DestinasiDetail
 import kotlinx.coroutines.launch
 
 class EditViewModel(
