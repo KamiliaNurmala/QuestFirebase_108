@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.pertemuan11.modeldata.Siswa
 import com.example.pertemuan11.repositori.RepositorySiswa
 import kotlinx.coroutines.launch
@@ -31,4 +32,22 @@ class DetailViewModel(
     var statusUIDetail: StatusUIDetail by mutableStateOf(StatusUIDetail.Loading)
         private set
 
+    // Tambahkan di dalam class DetailViewModel
+
+    init {
+        getSatuSiswa()
+    }
+
+    fun getSatuSiswa() {
+        viewModelScope.launch {
+            statusUIDetail = StatusUIDetail.Loading
+            statusUIDetail = try {
+                StatusUIDetail.Success(satusiswa = repositorySiswa.getSatuSiswa(idSiswa))
+            } catch (e: IOException) {
+                StatusUIDetail.Error
+            } catch (e: Exception) {
+                StatusUIDetail.Error
+            }
+        }
+    }
 }
