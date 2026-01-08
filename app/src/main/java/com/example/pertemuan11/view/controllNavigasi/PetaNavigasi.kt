@@ -14,7 +14,7 @@ import com.example.pertemuan11.view.EntrySiswaScreen
 @Composable
 fun DataSiswaApp(
     navController: NavHostController = rememberNavController(),
-    modifier: Modifier = Modifier
+    modifier: Modifier
 ) {
     HostNavigasi(navController = navController)
 }
@@ -27,14 +27,14 @@ fun HostNavigasi(
     NavHost(
         navController = navController,
         startDestination = DestinasiHome.route,
-        modifier = modifier
+        modifier = Modifier
     ) {
         composable(DestinasiHome.route) {
             HomeScreen(
                 navigateToItemEntry = {
                     navController.navigate(DestinasiEntry.route)
                 },
-                navigateToItemUpdate = { id ->
+                navigateToItemUpdate = {
                     navController.navigate("${DestinasiDetail.route}/$id")
                 }
             )
